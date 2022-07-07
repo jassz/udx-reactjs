@@ -16,6 +16,10 @@ function EditProfile() {
         // console.log(event.target.value);
       };
 
+      const submit = event =>{
+        alert('Form has been submitted')
+      }
+
     return (
         <div>
             <div className='flex w-full p-4 border-b'>
@@ -35,9 +39,10 @@ function EditProfile() {
                             </label>
                         </div>
                         <div className="md:w-2/3">
-                            <input className="bg-gray-200 border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                            <input className="bg-gray-200 border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="inline-full-name"
                                 type="text"
+                                placeholder="username"
                                 value={name}
                                 onChange={changeName} />
                         </div>
@@ -49,27 +54,37 @@ function EditProfile() {
                             </label>
                         </div>
                         <div className="md:w-2/3">
-                            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-password" type="password" placeholder="******************" />
+                            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="inline-password" type="text" placeholder="text@gmail.com" />
                         </div>
                     </div>
-                    <div className="radio">
-                        <label>
-                            <input type="radio" value={gender} onChange={changeGender} />
+                    <div className="md:w-1/3">
+                            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+                                Gender
+                            </label>
+                        </div>
+                    <div className="radio mx-5 mb-3 flex justify-start">
+                        <label className='my-auto'>
+                            <input type="radio"
+                            checked={gender === 'male'}
+                            value="male" onChange={changeGender} />
                             Male
                         </label>
                     </div>
-                    <div className="radio">
+                    <div className="radio mx-5 my-3">
                         <label>
-                            <input type="radio" value={gender} onChange={changeGender} />
+                            <input type="radio"
+                            checked={gender === 'female'}
+                            value="female" onChange={changeGender} />
                             Female
                         </label>
                     </div>
                     <div className="md:flex md:items-center">
                         <div className="md:w-2/3 text-center">
                             <button 
-                            className="shadow bg-red-600 hover:bg-red-500 focus:shadow-outline w-1/2 focus:outline-none text-white font-bold py-2 px-4 rounded-full" 
-                            type="button">
-                                Sign Up
+                            className="shadow bg-red-600 focus:shadow-outline w-1/2 focus:outline-none text-white font-bold py-2 px-4 rounded-full" 
+                            type="button"
+                            onClick={submit}>
+                                Update
                             </button>
                         </div>
                     </div>
