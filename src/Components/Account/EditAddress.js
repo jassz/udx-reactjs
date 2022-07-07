@@ -15,6 +15,9 @@ function EditAddress() {
                     <span className='ml-4'>Edit Address</span>
                 </div>
             </div>
+            <div>
+                <p className='font-bold m-3'>Deleting address...</p>
+            </div>
         </div>
     );
 }
