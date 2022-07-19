@@ -8,6 +8,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import FormikFieldRadio from '../../Components/FormikFieldRadio';
 
 import axiosErrorHandler from '../../utils/axiosErrorHandler';
+import Button from '../../Components/Button';
 
 function EditProfile() {
     let navigate = useNavigate();
@@ -59,22 +60,13 @@ function EditProfile() {
     const validationSchema = useMemo(
         () =>
             Yup.object().shape({
-                old_password: Yup.string()
-                    .label('Current Password')
-                    .required(('Please enter current password')),
-                password: Yup.string()
-                    .label('New Password')
-                    .required('Please enter new password')
-                    .min(6, ('Password min 6'))
-                    .max(15, ('Password max 15'))
-                    .matches(
-                        /^[a-zA-Z0-9]+$/,
-                        ('Password chars')
-                    ),
-                password_confirmation: Yup.string()
-                    .label('Confirm New Password')
-                    .required('Please re-type new password')
-                    .oneOf([Yup.ref('password')], ('Password mismatch')),
+                username: Yup.string()
+                    .label('Username')
+                    .required(('Username is required')),
+                email: Yup.string()
+                    .label('Email')
+                    .required('Email is required')
+                    .email()
             }),
         [],
     );
@@ -139,64 +131,12 @@ function EditProfile() {
                             </div>
                         )}
                     </Formik>
-
-                    {/* <div className="md:w-1/3">
-                            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                                Name
-                            </label>
-                        </div>
-                        <div className="md:w-2/3">
-                            <input className="bg-gray-100 border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-300"
-                                id="inline-full-name"
-                                type="text"
-                                placeholder="username"
-                                value={name}
-                                onChange={changeName} />
-                        </div>
-                    </div>
-                    <div className="md:flex md:items-center mb-6">
-                        <div className="md:w-1/3">
-                            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                                Email
-                            </label>
-                        </div>
-                        <div className="md:w-2/3">
-                            <input className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-300" id="inline-password" type="text" placeholder="text@gmail.com" />
-                        </div>
-                    </div>
-                    <div className="md:w-1/3">
-                            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-                                Gender
-                            </label>
-                        </div>
-                    <div className="radio mx-5 mb-3 flex justify-start">
-                        <label className='my-auto'>
-                            <input type="radio"
-                            checked={gender === 'male'}
-                            value="male" onChange={changeGender}
-                            className="my-auto" />
-                            Male
-                        </label>
-                    </div>
-                    <div className="radio mx-5 my-3">
-                        <label>
-                            <input type="radio"
-                            checked={gender === 'female'}
-                            value="female" onChange={changeGender} />
-                            Female
-                        </label>
-                    </div>
-                    <div className="md:flex md:items-center">
+                    <div className="md:flex md:items-center mt-5">
                         <div className="md:w-2/3 text-center">
-                            <button 
-                            className="shadow bg-red-600 focus:shadow-outline w-1/2 focus:outline-none text-white font-bold py-2 px-4 rounded-full" 
-                            type="button"
-                            onClick={submit}>
-                                Update
-                            </button>
-                        </div> */}
+                           <Button label={'Update'} action={submit} />
+                        </div> 
+                        </div>
                 </div>
-                {/* </form> */}
             </div>
         </div>
     );

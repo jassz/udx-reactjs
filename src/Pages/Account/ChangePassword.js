@@ -7,6 +7,7 @@ import FormikFieldPassword from '../../Components/FormikFieldPassword';
 import * as Yup from 'yup';
 import { toast, ToastContainer } from 'react-toastify';
 import axiosErrorHandler from '../../utils/axiosErrorHandler';
+import Button from '../../Components/Button';
 
 function ChangePassword() {
     let navigate = useNavigate();
@@ -120,14 +121,10 @@ function ChangePassword() {
                             </div>
                             <div className="md:flex md:items-center">
                                 <div className="md:w-2/3 text-center">
-                                    <button
-                                        className="shadow bg-red-600 focus:shadow-outline w-1/2 focus:outline-none text-white font-bold py-2 px-4 rounded-full"
-                                        type="submit"
-                                        onClick={submitForm}
-                                        loading={isSubmitting.toString()}
-                                        disabled={isSubmitting}>
-                                        Update
-                                    </button>
+                                   <Button 
+                                        label={'Update'} 
+                                        action={'submit'} 
+                                   />
                                 </div>
                             </div>
                         </div>
