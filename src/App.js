@@ -9,7 +9,7 @@ import {
 
 import Account from './Pages/Account/Account';
 import Orders from './Pages/Orders';
-import Home from './Pages/Home';
+import Home from './Pages/Homepage/Home';
 
 
 import Profile from './Pages/Account/Profile';
@@ -21,10 +21,11 @@ import CreateAddress from './Pages/Account/CreateAddress'
 import EditProfile from './Pages/Account/EditProfile'
 import ChnagePassword from './Pages/Account/ChangePassword';
 import TestFile from './Pages/TestFile';
+import OutletList from './Pages/OutletList';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App overflow-auto">
       {/* <Account /> */}
       <Router>
         <Routes >
@@ -32,6 +33,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/outlet-list" element={<OutletList />} />
           {/* <Routes > */}
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/change-password" element={<ChnagePassword />} />
@@ -45,8 +47,7 @@ function App() {
         </Routes>
         <Footer />
       </Router>
-
-
+        {/* <Footer /> */}
     </div>
   );
 }

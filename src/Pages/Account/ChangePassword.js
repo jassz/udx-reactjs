@@ -1,8 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { FaArrowLeft, FaEye, FaEyeSlash } from 'react-icons/fa'
+import { FaArrowLeft } from 'react-icons/fa'
 import './ChangePassword.css'
-import { Formik, Field, Form } from 'formik';
+import { Formik } from 'formik';
 import FormikFieldPassword from '../../Components/FormikFieldPassword';
 import * as Yup from 'yup';
 import { toast, ToastContainer } from 'react-toastify';
@@ -42,9 +42,9 @@ function ChangePassword() {
         }
     };
 
-    const goBack = () => {
-        goBack();
-    };
+    // const goBack = () => {
+    //     goBack();
+    // };
 
     const validationSchema = useMemo(
         () =>
@@ -79,7 +79,7 @@ function ChangePassword() {
                     <span className='ml-4'>Change Password</span>
                 </div>
             </div>
-            <div className="md:flex mb-6 px-4 pt-4">
+            <div className=" mb-6 px-4 pt-4">
                 <ToastContainer />
                 <Formik
                     initialValues={{
@@ -93,7 +93,7 @@ function ChangePassword() {
                     }>
                     {({ submitForm, isSubmitting }) => (
                         <div>
-                            <div className='px-5'>
+                            <div className=''>
                                 <FormikFieldPassword
                                     icon="key-outline"
                                     label="Current password"
@@ -119,8 +119,8 @@ function ChangePassword() {
                                     secureTextEntry={true}
                                 />
                             </div>
-                            <div className="md:flex md:items-center">
-                                <div className="md:w-2/3 text-center">
+                            <div className="">
+                                <div className="text-center">
                                    <Button 
                                         label={'Update'} 
                                         action={'submit'} 

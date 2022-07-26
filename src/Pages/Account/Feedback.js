@@ -1,19 +1,64 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa';
+import './Feedback.css'
 
-function EditAddress() {
+// const formReducer = (state, event) => {
+//     return {
+//       ...state,
+//       [event.target.name]: event.target.value
+//     }
+//    }
+
+function Feedback() {
     let navigate = useNavigate();
     const [message, setMessage] = useState('');
 
-  const handleMessageChange = event => {
-    // 👇️ update textarea value
-    setMessage(event.target.value);
-    console.log(event.target.value);
-  };
+    const handleMessageChange = event => {
+        setMessage(event.target.value);
+    };
+
+    const setCategory = (value) => {
+        console.log(value);
+    }
+
+    const categories = [
+        { id: 1, name: 'Food' },
+        { id: 2, name: 'Services' },
+        { id: 3, name: 'App Functionality' },
+        { id: 4, name: 'Others' }
+    ]
+
+    function getImage(e) {
+        // Assuming only image
+        // var file = this.useref.file.files[0];
+        // var reader = new FileReader();
+        // var url = reader.readAsDataURL(file);
+
+        // reader.onloadend = function (e) {
+        //     this.setState({
+        //         imgSrc: [reader.result]
+        //     })
+        // }.bind(this);
+        console.log(e) // Would see a path?
+        // TODO: concat files
+    }
+
+    // const [formData, setFormData] = useReducer(formReducer, {});
+    const [setSubmitting] = useState(false);
+
+    const handleSubmit = event => {
+        console.log(event);
+        event.preventDefault();
+        setSubmitting(true);
+
+        setTimeout(() => {
+        setSubmitting(false);
+        }, 3000)
+    }
 
     return (
-        <div>
+        <form onSubmit={handleSubmit}>
             <div className='flex w-full p-4 border-b'>
                 <div className='flex w-full'>
                     <FaArrowLeft
@@ -30,18 +75,19 @@ function EditAddress() {
                     Select a Category
                 </p>
                 <div>
-                    <span className="text-xs font-bold bg-gray-200 py-1 px-4 rounded-full m-1">
-                        Food
-                    </span>
-                    <span className="text-xs font-bold bg-gray-200 py-1 px-4 rounded-full m-1">
-                        Services
-                    </span>
-                    <span className="text-xs font-bold bg-gray-200 py-1 px-4 rounded-full m-1">
-                        App Functionality
-                    </span>
-                    <span className="text-xs font-bold bg-gray-200 py-1 px-4 rounded-full m-1">
-                        Others
-                    </span>
+                    <div className="radio-toolbar">
+                        {
+                            categories.map((category) => (
+                                <span key={category.id}>
+                                    <input type="radio"
+                                        id={category.id} name="radios"
+                                        value={category.id}
+                                        onChange={e => setCategory(e.target.value)} />
+                                    <label htmlFor={category.id}>{category.name}</label>
+                                </span>
+                            ))
+                        }
+                    </div>
                 </div>
 
             </div>
@@ -49,29 +95,36 @@ function EditAddress() {
                 <p className='font-bold text-sm my-4'>
                     Upload Photos
                 </p>
-                <input type="file" />
+                {/* <input type="file" /> */}
+                <input
+                    useref="file"
+                    type="file"
+                    name="user[image]"
+                    multiple={true}
+                    onChange={e => getImage(e.target.value)} />
+                    {/* <img src={this.state.imgSrc} /> */}
             </div>
             <div className='flex-wrap mt-8 px-4'>
                 <p className='font-bold text-sm my-2'>
                     Message
                 </p>
                 <span>Please provide your contact information if you are not able to register to this app.</span>
-                <textarea 
-                id="message"
-                name="message"
-                value={message} 
-                placeholder='Input your feedback/suggestion' 
-                className='border p-2 my-4 w-full' 
-                onChange={handleMessageChange}
+                <textarea
+                    id="message"
+                    name="message"
+                    value={message}
+                    placeholder='Input your feedback/suggestion'
+                    className='border p-2 my-4 w-full focus:outline-none'
+                    onChange={handleMessageChange}
                 />
                 <div className='text-center'>
-                <input type="submit"
-                    className='bg-red-600 w-1/2 center hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full'
-                    value="Submit" />
+                    <input type="submit"
+                        className='bg-red-600 w-1/2 center hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full'
+                        value="Submit" />
                 </div>
             </div>
-        </div>
+        </form>
     );
 }
 
-export default EditAddress;
+export default Feedback;

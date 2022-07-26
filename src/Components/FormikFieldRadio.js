@@ -1,13 +1,12 @@
-import { useField, useFormik } from 'formik';
-import React, { useState } from 'react';
+import { useField } from 'formik';
+import React from 'react';
 
 const FormikFieldPassword = ({
     name,
     label,
-    textContentType,
     value
 }) => {
-    const [field, meta] = useField(value, name);
+    const [meta] = useField(value, name);
 
     return (
         <div>

@@ -1,6 +1,6 @@
-import React from 'react'
+
 import 'react-toastify/dist/ReactToastify.css'
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const DEFAULT_MESSAGE = 'Unable to fulfil your request at the moment. Please try again later.'
 

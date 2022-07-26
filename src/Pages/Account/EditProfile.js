@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
 import FormikFieldText from '../../Components/FormikFieldText';
@@ -12,15 +12,15 @@ import Button from '../../Components/Button';
 
 function EditProfile() {
     let navigate = useNavigate();
-    const [gender, setGender] = useState('');
-    const [name, setName] = useState('');
-    const changeName = event => {
-        setName(event.target.value);
-    };
+    // const [gender, setGender] = useState('');
+    // const [name, setName] = useState('');
+    // const changeName = event => {
+    //     setName(event.target.value);
+    // };
 
-    const changeGender = event => {
-        setGender(event.target.value);
-    };
+    // const changeGender = event => {
+    //     setGender(event.target.value);
+    // };
 
     const submit = event => {
         alert('Form has been submitted')
@@ -73,7 +73,7 @@ function EditProfile() {
 
     return (
         <div>
-            <div className='flex w-full p-4 border-b'>
+            <div className=' w-full p-4 border-b'>
                 <div className='flex w-full'>
                     <FaArrowLeft
                         className='icon-size'
@@ -83,7 +83,7 @@ function EditProfile() {
             </div>
             <div>
                 {/* <form className="w-full max-w-sm p-5"> */}
-                <div className="md:flex mb-6">
+                <div className=" mb-6">
                     <ToastContainer />
                     <Formik
                         initialValues={{
@@ -97,7 +97,7 @@ function EditProfile() {
                         }>
                         {({ submitForm, isSubmitting }) => (
                             <div>
-                                <div className='px-5'>
+                                <div className='px-5 mt-5'>
                                     <FormikFieldText
                                         icon="key-outline"
                                         label="Name"
@@ -131,8 +131,8 @@ function EditProfile() {
                             </div>
                         )}
                     </Formik>
-                    <div className="md:flex md:items-center mt-5">
-                        <div className="md:w-2/3 text-center">
+                    <div className="md:items-center mt-5">
+                        <div className=" text-center">
                            <Button label={'Update'} action={submit} />
                         </div> 
                         </div>
