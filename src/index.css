@@ -28,4 +28,8 @@ textarea:focus-visible {
   outline-offset: 0px!important;
 }
 
+.pt-16 {
+  padding: 70px 0 10px 15px;
+}
+
 

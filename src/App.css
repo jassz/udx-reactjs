@@ -2,6 +2,7 @@
   /* text-align: center; */
   margin: 'auto';
   height: 100vh;
+  border: 1px solid lightgray;
 }
 
 .App-logo {
