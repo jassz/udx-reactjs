@@ -18,9 +18,9 @@ import {
 function Account() {
     return (
         <div className=''>
-            {/* <Link to="/test-file" className='flex justify-end px-5 w-full'>
+            <Link to="/test-file" className='flex justify-end px-5 w-full'>
                 <p>Test File</p>
-            </Link> */}
+            </Link>
 
             <div className='bg-red-600 text-center pb-4'>
                 <img alt="UD Logo" src={udLogo} className="m-auto max-w-sm w-48" />

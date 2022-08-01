@@ -1,26 +1,29 @@
-import React from 'react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
-import axiosErrorHandler from '../utils/axiosErrorHandler';
+import React, { Component } from 'react';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 
-function TestFile() {
+const mapStyles = {
+  width: '34%',
+  height: '93%'
+};
 
-    const clickTest = () => {
-        axiosErrorHandler();
-    }
-
+export class MapContainer extends Component {
+  render() {
     return (
-        <div className='text-center mt-5'>
-            <button
-                className="shadow text-center bg-red-600 focus:shadow-outline w-1/2 focus:outline-none text-white font-bold py-2 px-4 rounded-full"
-                type="button"
-                onClick={clickTest}>
-                Click Here
-            </button>
-
-            <ToastContainer autoClose={8000} />
-        </div>
+      <Map
+        google={this.props.google}
+        zoom={14}
+        style={mapStyles}
+        initialCenter={
+          {
+            lat: 3.1390,
+            lng: 101.6869
+          }
+        }
+      />
     );
+  }
 }
 
-export default TestFile;
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyA6MQaup9995XIYkPAmF0UQdaBonFfgjko'
+})(MapContainer);
