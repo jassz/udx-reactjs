@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
+import MyGoogleMap from '../../Components/MyGoogleMap';
 
 function EditAddress() {
     let navigate = useNavigate();
@@ -14,6 +15,9 @@ function EditAddress() {
                         onClick={() => navigate('/address')} />
                     <span className='ml-4'>Create Address</span>
                 </div>
+            </div>
+            <div className="main-wrapper">
+                <MyGoogleMap />
             </div>
         </div>
     );
