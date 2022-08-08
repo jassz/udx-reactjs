@@ -13,6 +13,16 @@ import './Feedback.css'
 function Feedback() {
     let navigate = useNavigate();
     const [message, setMessage] = useState('');
+    const [file, setFile] = useState();
+    function handleChange(e) {
+        console.log(e.target.files);
+        setFile(URL.createObjectURL(e.target.files[0]));
+        // e.target.files.map(file => {
+        //     setFile(URL.createObjectURL(file))
+        // })
+        // console.log(file);
+    }
+  
 
     const handleMessageChange = event => {
         setMessage(event.target.value);
@@ -29,26 +39,26 @@ function Feedback() {
         { id: 4, name: 'Others' }
     ]
 
-    function getImage(e) {
-        // Assuming only image
-        // var file = this.useref.file.files[0];
-        // var reader = new FileReader();
-        // var url = reader.readAsDataURL(file);
+    // function getImage(e) {
+    //     // Assuming only image
+    //     var file = this.useref.file.files[0];
+    //     var reader = new FileReader();
+    //     var url = reader.readAsDataURL(file);
 
-        // reader.onloadend = function (e) {
-        //     this.setState({
-        //         imgSrc: [reader.result]
-        //     })
-        // }.bind(this);
-        console.log(e) // Would see a path?
-        // TODO: concat files
-    }
+    //     reader.onloadend = function (e) {
+    //         this.setState({
+    //             imgSrc: [reader.result]
+    //         })
+    //     }.bind(this);
+    //     console.log(e) // Would see a path?
+    //     // setImage(e);
+    //     // TODO: concat files
+    // }
 
     // const [formData, setFormData] = useReducer(formReducer, {});
     const [setSubmitting] = useState(false);
 
     const handleSubmit = event => {
-        console.log(event);
         event.preventDefault();
         setSubmitting(true);
 
@@ -68,13 +78,13 @@ function Feedback() {
                 </div>
             </div>
             <div>
-                <p className='p-4 text-base'>We want your order experience to be perfect. Please submit your thoughts / ideas / suggestions below. </p>
+                <p className='p-4'>We want your order experience to be perfect. Please submit your thoughts / ideas / suggestions below. </p>
             </div>
             <div className='flex-wrap'>
-                <p className='font-bold text-sm m-4'>
+                <p className='font-bold text-sm mx-4'>
                     Select a Category
                 </p>
-                <div>
+                <div className='mt-1'>
                     <div className="radio-toolbar">
                         {
                             categories.map((category) => (
@@ -91,7 +101,7 @@ function Feedback() {
                 </div>
 
             </div>
-            <div className='flex-wrap mt-8 px-4'>
+            <div className='flex-wrap mt-4 px-4'>
                 <p className='font-bold text-sm my-4'>
                     Upload Photos
                 </p>
@@ -101,8 +111,10 @@ function Feedback() {
                     type="file"
                     name="user[image]"
                     multiple={true}
-                    onChange={e => getImage(e.target.value)} />
+                    onChange={handleChange} />
                     {/* <img src={this.state.imgSrc} /> */}
+                    <img className='w-1/4 mt-4' src={file} />
+
             </div>
             <div className='flex-wrap mt-8 px-4'>
                 <p className='font-bold text-sm my-2'>
