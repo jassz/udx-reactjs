@@ -17,14 +17,14 @@ function SavedAddress() {
             </div>
             <div className='px-4'>
                 <p className='pt-4 text-gray-400'>Deliver to a new location?</p>
-                <p className='border p-3 my-2 flex justify-between'>
+                <div className='border p-3 my-2 flex justify-between'>
                     <div className='flex'>
                         <FaPlus className='my-auto text-red-600' />
                         <span className='px-3'>Add New Address</span>
                     </div>
                     <FaArrowRight className='my-auto text-gray-400'
                     onClick={() => navigate('/address/create')} />
-                </p>
+                </div>
             </div>
             <div className='px-4 flex'>
                 <FaMapPin className='my-auto ml-3 text-red-600' />
@@ -35,10 +35,10 @@ function SavedAddress() {
                     <p className="text-xs font-bold bg-gray-200 py-1 px-4 rounded-full my-auto">
                         Home
                     </p>
-                    <p className="ml-3 text-xs">
+                    <div className="ml-3 text-xs">
                         <p>Naja</p>
                         <p className='text-gray-500'>0198195549</p>
-                    </p>
+                    </div>
                 </div>
                 <div className='flex w-full py-2 border-b'>
                     <div className='flex w-full ml-3'>
@@ -60,10 +60,10 @@ function SavedAddress() {
                     <p className="text-xs font-bold bg-gray-200 py-1 px-4 rounded-full my-auto">
                         Work
                     </p>
-                    <p className="ml-3 text-xs">
+                    <div className="ml-3 text-xs">
                         <p>Roger</p>
                         <p className='text-gray-500'>0198195549</p>
-                    </p>
+                    </div>
                 </div>
                 <div className='flex w-full py-2 border-b'>
                     <div className='flex w-full ml-3'>

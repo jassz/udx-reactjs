@@ -54,10 +54,7 @@ function Profile() {
             </ul>
             <p className='text-red-600 font-bold mt-5 text-center'>Log Out</p>
         </div>
-
     );
-
-
 }
 
 export default Profile;

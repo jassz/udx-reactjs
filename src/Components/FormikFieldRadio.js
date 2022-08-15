@@ -1,7 +1,7 @@
 import { useField } from 'formik';
 import React from 'react';
 
-const FormikFieldPassword = ({
+const FormikFieldRadio = ({
     name,
     label,
     value
@@ -27,4 +27,4 @@ const FormikFieldPassword = ({
 
     );
 }
-export default FormikFieldPassword;
+export default FormikFieldRadio;
