@@ -20,7 +20,7 @@ const FormikFieldPassword = ({
         <div>
             <label className='w-full block mb-1 font-bold text-gray-500'>{label}</label>
             <div className="md:w-2/3 input-container">
-                <input className="bg-gray-100 border-2 border-gray-100 w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-300"
+                <input className="bg-gray-100 border-2 border-gray-100 w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none"
                     id="inline-full-name"
                     type={hidePassword ? 'password' : 'text'}
                     onChange={field.onChange(name)}

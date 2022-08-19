@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa';
 import './Feedback.css'
@@ -12,6 +12,23 @@ import './Feedback.css'
 
 function Feedback() {
     let navigate = useNavigate();
+
+    const [images, setImages] = useState([]);
+    const [imageURLS, setImageURLs] = useState([]);
+    
+    useEffect(() => {
+        if (images.length < 1) return;
+        const newImageUrls = [];
+        images.forEach((image) => newImageUrls.push(URL.createObjectURL(image)));
+        setImageURLs(newImageUrls);
+    }, [images]);
+
+    function onImageChange(e) {
+        setImages([...e.target.files]);
+    }
+
+
+
     const [message, setMessage] = useState('');
     const [file, setFile] = useState();
     function handleChange(e) {
@@ -22,7 +39,7 @@ function Feedback() {
         // })
         // console.log(file);
     }
-  
+
 
     const handleMessageChange = event => {
         setMessage(event.target.value);
@@ -63,7 +80,7 @@ function Feedback() {
         setSubmitting(true);
 
         setTimeout(() => {
-        setSubmitting(false);
+            setSubmitting(false);
         }, 3000)
     }
 
@@ -106,14 +123,19 @@ function Feedback() {
                     Upload Photos
                 </p>
                 {/* <input type="file" /> */}
-                <input
+                {/* <input
                     useref="file"
                     type="file"
                     name="user[image]"
                     multiple={true}
-                    onChange={handleChange} />
-                    {/* <img src={this.state.imgSrc} /> */}
-                    <img className='w-1/4 mt-4' src={file} />
+                    onChange={handleChange} /> */}
+                {/* <img src={this.state.imgSrc} /> */}
+                {/* <img className='w-1/4 mt-4' alt={file} src={file} /> */}
+
+                <input type="file" multiple accept="image/*" onChange={onImageChange} />
+                {imageURLS.map((imageSrc) => (
+                    <img src={imageSrc} alt="not fount" className='w-1/4 mt-4' />
+                ))}
 
             </div>
             <div className='flex-wrap mt-8 px-4'>
