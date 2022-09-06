@@ -22,6 +22,7 @@ import EditProfile from './Pages/Account/EditProfile'
 import ChangePassword from './Pages/Account/ChangePassword';
 import TestFile from './Pages/TestFile';
 import OutletList from './Pages/OutletList';
+import MenuList from './Pages/Menu/MenuList';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/test-file" element={<TestFile />} />
           <Route path="/" element={<Home />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/menu-list" element={<MenuList />} />
           <Route path="/account" element={<Account />} />
           <Route path="/outlet-list" element={<OutletList />} />
           {/* <Routes > */}
