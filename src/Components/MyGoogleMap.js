@@ -4,27 +4,28 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
 import styled from 'styled-components';
-import '../App.css'
-import Marker from './Marker';
+
 import AutoComplete from './Autocomplete';
+import Marker from './Marker';
 
 const Wrapper = styled.main`
   width: 100%;
   height: 100%;
 `;
+const mapApiKey = process.env.REACT_APP_MAP_API
 
 
 class MyGoogleMap extends Component {
 
-    
     state = {
+        // mapApiKey: this.process.env.REACT_APP_MAP_API,
         mapApiLoaded: false,
         mapInstance: null,
         mapApi: null,
-        geoCoder: '',
-        places: [],
+        geoCoder: null,
+        places: '',
         center: [],
-        zoom: 11,
+        zoom: 9,
         address: '',
         draggable: true,
         lat: null,
@@ -32,7 +33,6 @@ class MyGoogleMap extends Component {
     };
 
     componentWillMount() {
-        console.log(1);
         this.setCurrentLocation();
     }
 
@@ -50,7 +50,6 @@ class MyGoogleMap extends Component {
     }
 
     _onChange = ({ center, zoom }) => {
-        console.log('center');
         this.setState({
             center: center,
             zoom: zoom,
@@ -63,7 +62,6 @@ class MyGoogleMap extends Component {
             lat: value.lat,
             lng: value.lng
         });
-        this._generateAddress()
     }
 
     apiHasLoaded = (map, maps) => {
@@ -77,25 +75,32 @@ class MyGoogleMap extends Component {
     };
 
     addPlace = (place) => {
-        // console.log('place', place);
+        console.log('place1', place);
         this.setState({
-            places: [place],
+            // places: [place],
+            places: place,
             lat: place.geometry.location.lat(),
             lng: place.geometry.location.lng()
         });
+        console.log('places', this.state.places);
+        console.log('lat', this.state.lat);
+        console.log('lng', this.state.lng);
         this._generateAddress()
     };
-    
+
     _generateAddress() {
         const {
             mapApi
         } = this.state;
+
         const geocoder = new mapApi.Geocoder;
-        console.log(this.state.places);
+
         geocoder.geocode({ 'location': { lat: this.state.lat, lng: this.state.lng } }, (results, status) => {
-            // console.log('result', results);
+            console.log(results);
+            console.log(status);
             if (status === 'OK') {
                 if (results[0]) {
+                    this.zoom = 12;
                     this.setState({ address: results[0].formatted_address });
                 } else {
                     window.alert('No results found');
@@ -111,7 +116,6 @@ class MyGoogleMap extends Component {
     setCurrentLocation() {
         if ('geolocation' in navigator) {
             navigator.geolocation.getCurrentPosition((position) => {
-                // console.log('position', position);
                 this.setState({
                     center: [position.coords.latitude, position.coords.longitude],
                     lat: position.coords.latitude,
@@ -126,19 +130,18 @@ class MyGoogleMap extends Component {
             places, mapApiLoaded, mapInstance, mapApi,
         } = this.state;
 
+
         return (
             <Wrapper>
                 {mapApiLoaded && (
-                    // <div>
-                        <AutoComplete className='py-0' map={mapInstance} mapApi={mapApi} addplace={this.addPlace} />
-                    // </div>
+                    <div>
+                        <AutoComplete map={mapInstance} mapApi={mapApi} addplace={this.addPlace} />
+                    </div>
                 )}
-                
                 <GoogleMapReact
-                className='test'
                     center={this.state.center}
                     zoom={this.state.zoom}
-                    // draggable={this.state.draggable}
+                    draggable={this.state.draggable}
                     onChange={this._onChange}
                     onChildMouseDown={this.onMarkerInteraction}
                     onChildMouseUp={this.onMarkerInteractionMouseUp}
@@ -146,7 +149,7 @@ class MyGoogleMap extends Component {
                     onChildClick={() => console.log('child click')}
                     onClick={this._onClick}
                     bootstrapURLKeys={{
-                        key: 'AIzaSyBucdbx0roj9sAlyXqsyy8Hhf9HHMHazcI',
+                        key: this.mapApiKey,
                         libraries: ['places', 'geometry'],
                     }}
                     yesIWantToUseGoogleMapApiInternals
@@ -167,6 +170,8 @@ class MyGoogleMap extends Component {
                     <div className="map-details">Zoom: <span>{this.state.zoom}</span></div>
                     <div className="map-details">Address: <span>{this.state.address}</span></div>
                 </div>
+
+
             </Wrapper >
         );
     }

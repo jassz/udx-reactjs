@@ -65,8 +65,8 @@ function OutletList() {
     ])
 
     return (
-        <div className='bg-red pb-10'>
-            <div className='flex footer p-4 border-b fixed bg-white'>
+        <div className='pb-10'>
+            <div className='flex footer p-4 border-b fixed bg-white w-full'>
                 <div className='flex w-full'>
                     <FaArrowLeft
                         className='icon-size my-auto'

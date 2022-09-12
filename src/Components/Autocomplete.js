@@ -45,7 +45,7 @@ class AutoComplete extends Component {
             map.setCenter(place.geometry.location);
             map.setZoom(17);
         }
-
+        console.log('place', place);
         addplace(place);
         this.searchInput.blur();
     };

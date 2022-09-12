@@ -30,15 +30,14 @@ function Feedback() {
 
 
     const [message, setMessage] = useState('');
-    const [file, setFile] = useState();
-    function handleChange(e) {
-        console.log(e.target.files);
-        setFile(URL.createObjectURL(e.target.files[0]));
-        // e.target.files.map(file => {
-        //     setFile(URL.createObjectURL(file))
-        // })
-        // console.log(file);
-    }
+    // const [file, setFile] = useState();
+    // function handleChange(e) {
+    //     setFile(URL.createObjectURL(e.target.files[0]));
+    //     e.target.files.map(file => {
+    //         setFile(URL.createObjectURL(file))
+    //     })
+    //     console.log(file);
+    // }
 
 
     const handleMessageChange = event => {
