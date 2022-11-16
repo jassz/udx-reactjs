@@ -23,6 +23,7 @@ import ChangePassword from './Pages/Account/ChangePassword';
 import TestFile from './Pages/TestFile';
 import OutletList from './Pages/OutletList';
 import MenuList from './Pages/Menu/MenuList';
+import ProductDetail from './Pages/Product/ProductDetail';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
                 <Route path="/address/edit" element={<EditAddress />} />
                 <Route path="/address/create" element={<CreateAddress />} />
                 <Route path="/profile/edit" element={<EditProfile />} />
+                <Route path="/product" element={<ProductDetail />} />
             {/* </Routes> */}
         </Routes>
         <Footer />

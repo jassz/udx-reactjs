@@ -7,11 +7,11 @@ import './Menu.css'
 // import image1 from '../../assets/images/UD-Express_App_User_Icon.jpg'
 
 function MenuList() {
-
-    const [currentTab, setCurrentTab] = useState('1');
+    let navigate = useNavigate();
+    const [currentTab, setCurrentTab] = useState('0');
     const [tabs] = useState([
         {
-            id: 1,
+            id: 0,
             tabTitle: 'Uncle Don\'s Merchandise',
             contents: [
                 {
@@ -35,7 +35,7 @@ function MenuList() {
             ]
         },
         {
-            id: 2,
+            id: 1,
             tabTitle: 'Wines',
             contents: [
                 {
@@ -47,7 +47,7 @@ function MenuList() {
             ]
         },
         {
-            id: 3,
+            id: 2,
             tabTitle: 'Local Favourite',
             contents: [
                 {
@@ -59,7 +59,7 @@ function MenuList() {
             ]
         },
         {
-            id: 4,
+            id: 3,
             tabTitle: 'Starters',
             contents: [
                 {
@@ -71,7 +71,7 @@ function MenuList() {
             ]
         },
         {
-            id: 5,
+            id: 4,
             tabTitle: 'Chicken',
             contents: [
                 {
@@ -83,7 +83,7 @@ function MenuList() {
             ]
         },
         {
-            id: 6,
+            id: 5,
             tabTitle: 'Pork',
             contents: [
                 {
@@ -95,7 +95,7 @@ function MenuList() {
             ]
         },
         {
-            id: 7,
+            id: 6,
             tabTitle: 'Fish',
             contents: [
                 {
@@ -107,7 +107,7 @@ function MenuList() {
             ]
         },
         {
-            id: 8,
+            id: 7,
             tabTitle: 'Lamb',
             contents: [
                 {
@@ -123,6 +123,7 @@ function MenuList() {
 
     const handleTabClick = (e) => {
         setCurrentTab(e.target.id);
+        window.location.href='#'+e.target.id;
     }
     let navigation = useNavigate();
     return (
@@ -148,22 +149,25 @@ function MenuList() {
                 </div>
             </div>
             <div className='container'>
-                <div className='tabs tabs-scroll' >
+                <div className='tabs tabs-scroll' style={{'position':'sticky','top':'0'}} >
                     {tabs.map((tab, i) =>
-                        <button key={i} id={tab.id} disabled={currentTab === `${tab.id}`} onClick={(handleTabClick)}>{tab.tabTitle}</button>
+                        <a href={'#'+i}>
+                            <button key={i} id={tab.id} disabled={currentTab === `${tab.id}`} onClick={(handleTabClick)}>{tab.tabTitle}</button>
+                        </a>
                     )}
                 </div>
 
-                <div className='content mt-3'>
+                <div className='content mt-3 mb-20'>
                     {tabs.map((tab, i) =>
-                        <div key={i}>
-                            {currentTab === `${tab.id}` && <div>
-                                <p className='title'>{tab.tabTitle}</p>
+                        <div id={i} key={i} className="">
+                            <div>
+                                <p className='text-base mb-2 font-extrabold'>{tab.tabTitle}</p>
                                 {tab.contents.map((value, index) =>
-                                    <div className='flex justify-start p-3 border-bottom'>
+                                <div>
+                                    <div className='flex justify-start pb-2 border-bottom' onClick={() => navigate('/product')}>
                                         <img alt="image1" className='w-1/4 h-full' src='/static/media/UD-Express_App_User_Icon.ef3fa3fbd859bcb8198e.jpg' />
                                         <div className='ml-2'>
-                                            <p className='font-bold'>{value.title}</p>
+                                            <p className='font-bold text-sm'>{value.title}</p>
                                             <p className='text-sm'>{value.description}</p>
                                             <div className='flex justify-between'>
                                                 <div className='flex justify-start'>
@@ -175,9 +179,12 @@ function MenuList() {
                                             </div>
                                         </div>
                                     </div>
+            <div className='border-t-2 my-2 border-gray-200'></div>
+
+</div>
+                                    
                                 )}
-                            </div>
-                            }
+                            </div>                            
                         </div>
                     )}
                 </div>

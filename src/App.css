@@ -67,7 +67,7 @@
 
 .tabs button:disabled {
   color: red;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   border-bottom: 5px solid red;
 
 }
