@@ -1,8 +1,16 @@
 import React from 'react';
+import TabRender from '../Components/TabRender';
 
 function Orders() {
     return ( 
-        <h1>Orders Page</h1>
+        <div>
+            <p className='font-semibold text-lg text-center pt-2'>Orders Page</p>
+            <TabRender color="pink" />
+        </div>
+        // <div>
+        //     <p className='font-bold text-xl text-center my-2'>Orders Page</p>
+            
+        // </div>
      );
 }
 
