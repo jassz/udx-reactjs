@@ -1,5 +1,5 @@
 import React from 'react';
-import TabRender from '../Components/TabRender';
+import TabRender from '../../Components/TabRender';
 
 function Orders() {
     return ( 

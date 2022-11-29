@@ -8,79 +8,6 @@ const TabRender = ({ color }) => {
     let navigate = useNavigate();
 
     const [openTab, setOpenTab] = React.useState(1);
-
-    const [orderList] = useState([
-        {
-            id: 'link1',
-            number: 1,
-            name: 'To Pay',
-            data: [
-                {
-                    name: 'Product 1',
-                    details: ' Completely synergize resource taxing relationships via' +
-                        'premier niche markets. Professionally cultivate one-to-one' +
-                        'customer service with robust ideas',
-                    qty: '12',
-                    image: {image1}
-                },
-                {
-                    name: 'Product 2',
-                    details: ' Completely synergize resource taxing relationships via' +
-                        'premier niche markets. Professionally cultivate one-to-one' +
-                        'customer service with robust ideas',
-                    qty: '12',
-                    image: '../assets/images/UD-Express_App_User_Icon.jpg'
-                }
-            ]
-        },
-
-        {
-            id: 'link2',
-            number: 2,
-            name: 'On Going',
-            data: [
-                {
-                    name: 'Product 3',
-                    details: ' Completely synergize resource taxing relationships via' +
-                        'premier niche markets. Professionally cultivate one-to-one' +
-                        'customer service with robust ideas',
-                    qty: '12',
-                    image: '../assets/images/UD-Express_App_User_Icon.jpg'
-                },
-                {
-                    name: 'Product 4',
-                    details: ' Completely synergize resource taxing relationships via' +
-                        'premier niche markets. Professionally cultivate one-to-one' +
-                        'customer service with robust ideas',
-                    qty: '12',
-                    image: '../assets/images/UD-Express_App_User_Icon.jpg'
-                }
-            ]
-        },
-        {
-            id: 'link3',
-            number: 3,
-            name: 'Dine History',
-            data: [
-                {
-                    name: 'Product 5',
-                    details: ' Completely synergize resource taxing relationships via' +
-                        'premier niche markets. Professionally cultivate one-to-one' +
-                        'customer service with robust ideas',
-                    qty: '12',
-                    image: '../assets/images/UD-Express_App_User_Icon.jpg'
-                },
-                {
-                    name: 'Product 6',
-                    details: ' Completely synergize resource taxing relationships via' +
-                        'premier niche markets. Professionally cultivate one-to-one' +
-                        'customer service with robust ideas',
-                    qty: '12',
-                    image: '../assets/images/UD-Express_App_User_Icon.jpg'
-                }
-            ]
-        }
-    ])
     return (
         <div>
             <div className="flex flex-wrap">
@@ -149,66 +76,49 @@ const TabRender = ({ color }) => {
                     <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded">
                         <div className="px-4 py-5 flex-auto">
                             <div className="tab-content tab-space">
-                                {orderList.map((order, i) =>
                                     <div className={openTab === 1 ? "block" : "hidden"} id='link1'>
-                                        {i}
-                                        {/* {order.data.map((value, i) => 
-                                        <div className='flex mb-5' >
-                                            {value.image}
-                                        <img alt="image1" className='h-full w-1/4 p-2' src={value.image} />
-                                        <div>
-                                            <p className='font-bold ml-4'>{value.name}</p>
+                                    <div className='flex mb-5' onClick={() => navigate('/order-details')}>
+                                        <img alt="image1" className='rounded-full h-full w-1/4 p-2' src={image1} />
+                                        <div className='my-auto'>
+                                            <p className='font-bold ml-4'>UD2022129152569862</p>
                                             <p className='text-sm ml-4 text-gray-600 '>
-                                                {value.details}
+                                               2 items, RM35.05
                                             </p>
-                                            <p className='text-sm ml-4 text-gray-600 font-bold '>
-                                                {value.qty}
+                                            <p className='text-sm ml-4 font-bold text-gray-600 font-bold '>
+                                                Pending Payment
                                             </p>
                                         </div>
                                     </div>
-                                        )} */}
-                                        
                                     </div>
-                                )}
-
-                                {/* <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                                    <div className='flex mb-5' >
-                                        <img alt="image1" className='h-full w-1/4 p-2' src={image1} />
-                                        <div>
-                                            <p className='font-bold ml-4'>Product Name</p>
+                                                              
+                                <div className={openTab === 2 ? "block" : "hidden"} id="link2">
+                                <div className='flex mb-5' onClick={() => navigate('/order-details')} >
+                                        <img alt="image1" className='rounded-full h-full w-1/4 p-2' src={image1} />
+                                        <div className='my-auto'>
+                                            <p className='font-bold ml-4'>UD2022142343249862</p>
                                             <p className='text-sm ml-4 text-gray-600 '>
-                                                Completely synergize resource taxing relationships via
-                                                premier niche markets. Professionally cultivate one-to-one
-                                                customer service with robust ideas.
-                                                Completely synergize resource taxing relationships via
-                                                premier niche markets. Professionally cultivate one-to-one
-                                                customer service with robust ideas.
+                                               12 items, RM342.05
                                             </p>
-                                            <p className='text-sm ml-4 text-gray-600 font-bold '>
-                                                1pcs
+                                            <p className='text-sm ml-4 font-bold text-gray-600 font-bold '>
+                                                In transit
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                                    <div className='flex mb-5' >
-                                        <img alt="image1" className='h-full w-1/4 p-2' src={image1} />
-                                        <div>
-                                            <p className='font-bold ml-4'>Product Name</p>
+                                <div className='flex mb-5' onClick={() => navigate('/order-details')}>
+                                        <img alt="image1" className='rounded-full h-full w-1/4 p-2' src={image1} />
+                                        <div className='my-auto'>
+                                            <p className='font-bold ml-4'>UD2022129876543862</p>
                                             <p className='text-sm ml-4 text-gray-600 '>
-                                                Completely synergize resource taxing relationships via
-                                                premier niche markets. Professionally cultivate one-to-one
-                                                customer service with robust ideas.
-                                                Completely synergize resource taxing relationships via
-                                                premier niche markets. Professionally cultivate one-to-one
-                                                customer service with robust ideas.
+                                               22 items, RM15.05
                                             </p>
-                                            <p className='text-sm ml-4 text-gray-600 font-bold '>
-                                                1pcs
+                                            <p className='text-sm ml-4 font-bold text-gray-600 font-bold '>
+                                                Completed
                                             </p>
                                         </div>
                                     </div>
-                                </div> */}
+                                </div>
                             </div>
                         </div>
                     </div>

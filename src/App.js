@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 import Account from './Pages/Account/Account';
-import Orders from './Pages/Orders';
+// import Orders from './Pages/Orders';
 import Home from './Pages/Homepage/Home';
 import './App.css'
 
@@ -24,6 +24,8 @@ import TestFile from './Pages/TestFile';
 import OutletList from './Pages/OutletList';
 import MenuList from './Pages/Menu/MenuList';
 import ProductDetail from './Pages/Product/ProductDetail';
+import Orders from './Pages/Order/Orders';
+import OrderDetails from './Pages/Order/OrderDetails';
 
 function App() {
   return (
@@ -34,6 +36,7 @@ function App() {
           <Route path="/test-file" element={<TestFile />} />
           <Route path="/" element={<Home />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/order-details" element={<OrderDetails />} />
           <Route path="/menu-list" element={<MenuList />} />
           <Route path="/account" element={<Account />} />
           <Route path="/outlet-list" element={<OutletList />} />
