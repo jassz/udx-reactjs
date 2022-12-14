@@ -76,28 +76,28 @@ const TabRender = ({ color }) => {
                     <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded">
                         <div className="px-4 py-5 flex-auto">
                             <div className="tab-content tab-space">
-                                    <div className={openTab === 1 ? "block" : "hidden"} id='link1'>
+                                <div className={openTab === 1 ? "block" : "hidden"} id='link1'>
                                     <div className='flex mb-5' onClick={() => navigate('/order-details')}>
                                         <img alt="image1" className='rounded-full h-full w-1/4 p-2' src={image1} />
                                         <div className='my-auto'>
                                             <p className='font-bold ml-4'>UD2022129152569862</p>
                                             <p className='text-sm ml-4 text-gray-600 '>
-                                               2 items, RM35.05
+                                                2 items, RM35.05
                                             </p>
                                             <p className='text-sm ml-4 font-bold text-gray-600 font-bold '>
                                                 Pending Payment
                                             </p>
                                         </div>
                                     </div>
-                                    </div>
-                                                              
+                                </div>
+
                                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                                <div className='flex mb-5' onClick={() => navigate('/order-details')} >
+                                    <div className='flex mb-5' onClick={() => navigate('/order-details')} >
                                         <img alt="image1" className='rounded-full h-full w-1/4 p-2' src={image1} />
                                         <div className='my-auto'>
                                             <p className='font-bold ml-4'>UD2022142343249862</p>
                                             <p className='text-sm ml-4 text-gray-600 '>
-                                               12 items, RM342.05
+                                                12 items, RM342.05
                                             </p>
                                             <p className='text-sm ml-4 font-bold text-gray-600 font-bold '>
                                                 In transit
@@ -106,12 +106,12 @@ const TabRender = ({ color }) => {
                                     </div>
                                 </div>
                                 <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                                <div className='flex mb-5' onClick={() => navigate('/order-details')}>
+                                    <div className='flex mb-5' onClick={() => navigate('/order-details')}>
                                         <img alt="image1" className='rounded-full h-full w-1/4 p-2' src={image1} />
                                         <div className='my-auto'>
                                             <p className='font-bold ml-4'>UD2022129876543862</p>
                                             <p className='text-sm ml-4 text-gray-600 '>
-                                               22 items, RM15.05
+                                                22 items, RM15.05
                                             </p>
                                             <p className='text-sm ml-4 font-bold text-gray-600 font-bold '>
                                                 Completed
