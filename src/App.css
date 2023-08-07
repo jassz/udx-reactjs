@@ -24,7 +24,9 @@
   }
 }
 
-
+.overflow-auto::-webkit-scrollbar {
+  display: none;
+}
 .main-wrapper {
   height: 60vh;
   filter: drop-shadow(-1px 5px 3px #ccc);

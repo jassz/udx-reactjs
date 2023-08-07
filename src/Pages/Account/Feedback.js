@@ -84,7 +84,7 @@ function Feedback() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='pb-16 scroll'>
             <div className='flex w-full p-4 border-b'>
                 <div className='flex w-full'>
                     <FaArrowLeft

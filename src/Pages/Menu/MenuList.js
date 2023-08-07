@@ -123,7 +123,7 @@ function MenuList() {
 
     const handleTabClick = (e) => {
         setCurrentTab(e.target.id);
-        window.location.href='#'+e.target.id;
+        window.location.href = '#' + e.target.id;
     }
     let navigation = useNavigate();
     return (
@@ -149,9 +149,9 @@ function MenuList() {
                 </div>
             </div>
             <div className='container'>
-                <div className='tabs tabs-scroll' style={{'position':'sticky','top':'0'}} >
+                <div className='tabs tabs-scroll' style={{ 'position': 'sticky', 'top': '0' }} >
                     {tabs.map((tab, i) =>
-                        <a href={'#'+i}>
+                        <a href={'#' + i} key={i}>
                             <button key={i} id={tab.id} disabled={currentTab === `${tab.id}`} onClick={(handleTabClick)}>{tab.tabTitle}</button>
                         </a>
                     )}
@@ -163,28 +163,27 @@ function MenuList() {
                             <div>
                                 <p className='text-base mb-2 font-extrabold'>{tab.tabTitle}</p>
                                 {tab.contents.map((value, index) =>
-                                <div>
-                                    <div className='flex justify-start pb-2 border-bottom' onClick={() => navigate('/product')}>
-                                        <img alt="image1" className='w-1/4 h-full' src='/static/media/UD-Express_App_User_Icon.ef3fa3fbd859bcb8198e.jpg' />
-                                        <div className='ml-2'>
-                                            <p className='font-bold text-sm'>{value.title}</p>
-                                            <p className='text-sm'>{value.description}</p>
-                                            <div className='flex justify-between'>
-                                                <div className='flex justify-start'>
-                                                    <span>RM</span><p className='font-bold'>{value.price}</p>
+                                    <div key={index}>
+                                        <div className='flex justify-start pb-2 border-bottom' onClick={() => navigate('/product')}>
+                                            <img alt="image1" className='w-1/4 h-full' src='/static/media/UD-Express_App_User_Icon.ef3fa3fbd859bcb8198e.jpg' />
+                                            <div className='ml-2'>
+                                                <p className='font-bold text-sm'>{value.title}</p>
+                                                <p className='text-sm'>{value.description}</p>
+                                                <div className='flex justify-between'>
+                                                    <div className='flex justify-start'>
+                                                        <span>RM</span><p className='font-bold'>{value.price}</p>
+                                                    </div>
+                                                    <FaCartPlus
+                                                        className='mt-1 text-gray-400'
+                                                        onClick={() => navigation('/outlet-list')} />
                                                 </div>
-                                                <FaCartPlus
-                                                    className='mt-1 text-gray-400'
-                                                    onClick={() => navigation('/outlet-list')} />
                                             </div>
                                         </div>
-                                    </div>
-            <div className='border-t-2 my-2 border-gray-200'></div>
+                                        <div className='border-t-2 my-2 border-gray-200'></div>
 
-</div>
-                                    
+                                    </div>
                                 )}
-                            </div>                            
+                            </div>
                         </div>
                     )}
                 </div>

@@ -10,14 +10,20 @@ function ProductDetail() {
     
     let navigate = useNavigate();
     // let counter = 0
-    let [counter, setCounter] = useState('0');
+    let [counter, setCounter] = useState(0);
 
     const plusminus = (e) => {
         console.log('params', e.target);
+        console.log('counter',counter);
         if (e === 'plus') {
-            setCounter(e.target.value)
+            setCounter(counter + 1)
             //  counter = counter + 1
         }
+    }
+
+    const formatCount = () => {
+        const { value } = counter
+        return value === 0 ? 'Zero' : value
     }
 
     return (
@@ -31,9 +37,10 @@ function ProductDetail() {
                 <div className='my-auto text-center'>
                     <span className='font-bold text-base'>RM15.50</span>
                     <div className="number">
-                        <span className="minus" onClick={(plusminus)}>-</span>
+                        <span className="minus" onClick={() => plusminus(counter)}>-</span>
                         <input type="text" value={counter} onChange={(plusminus)} />
-                        <span className="plus" onClick={(plusminus)}>+</span>
+                        {/* <span>{formatCount()}</span> */}
+                        <span className="plus" onClick={() => plusminus(counter)}>+</span>
                     </div>
                 </div>
             </div>

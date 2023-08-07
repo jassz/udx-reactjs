@@ -16,3 +16,11 @@
   .radio-toolbar input[type="radio"]:checked+label {
     background-color: #bbb;
   }
+
+  .scroll {
+    overflow-y: scroll;
+    /* background-color: red; */
+}
+  .scroll::-webkit-scrollbar {
+    display: none;
+  }
