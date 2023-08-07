@@ -1,7 +1,7 @@
 {
   "name": "udx-reactjs",
   "version": "0.1.0",
-  "homepage": "https://jassz.github.io/udx-reactjs",
+  "homepage": "http://jassz.github.io/udx-reactjs",
   "private": true,
   "dependencies": {
     "@react-navigation/core": "^6.2.2",
