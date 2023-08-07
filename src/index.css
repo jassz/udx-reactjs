@@ -10,13 +10,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
-    /* height: 100%;
-    width: 100%; */
-    /* max-width: 500px; */
     margin: auto;
     overflow: hidden;
     position: relative;
-    /* background: red; */
 }
 
 code {
@@ -30,6 +26,10 @@ code {
 
 textarea:focus-visible {
   outline-offset: 0px!important;
+}
+
+.pt-16 {
+  padding: 70px 0 10px 15px;
 }
 
 

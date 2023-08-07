@@ -1,0 +1,7 @@
+.tabs-scroll {
+    overflow-x: scroll;
+}
+.tabs-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  

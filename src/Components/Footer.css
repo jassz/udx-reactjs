@@ -1,0 +1,5 @@
+.footer {
+    min-width: 55vh;
+    display: flex;
+    max-width: 55vh;
+}

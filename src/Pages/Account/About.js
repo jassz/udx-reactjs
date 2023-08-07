@@ -16,6 +16,7 @@ function About() {
                     <span className='ml-4 text-base font-bold'>About</span>
                 </div>
             </div>
+            {process.env.REACT_APP_DEV_MODE}
             <img alt="UD Logo" src={udLogo} className="m-auto mt-3 rounded-xl max-w-sm w-28" />
             <p className='text-center text-gray-400 text-base my-4'>v1.3.1 (9004)</p>
             <p className='text-base text-center px-5 text-gray-600 '>Uncle Don's official mobile app with delivery services, satisfying your cravings hassle free. Dine like a Don!</p>
