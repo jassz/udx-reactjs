@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/udx-reactjs/static/css/main.77984b3a.css",
+    "main.js": "/udx-reactjs/static/js/main.7ae4bfe7.js",
+    "static/js/787.25fb5f5a.chunk.js": "/udx-reactjs/static/js/787.25fb5f5a.chunk.js",
+    "static/media/UD-Express_App_Highlight-2_Flatten.jpg": "/udx-reactjs/static/media/UD-Express_App_Highlight-2_Flatten.c884221e77dbc2e5ad51.jpg",
+    "static/media/UD-Express_App_Homepage_Carousel-4.jpg": "/udx-reactjs/static/media/UD-Express_App_Homepage_Carousel-4.2d9bbedccfadff7f5770.jpg",
+    "static/media/UD-Express_App_Homepage_UDE-Outlet_Flatten.jpg": "/udx-reactjs/static/media/UD-Express_App_Homepage_UDE-Outlet_Flatten.8f02a9baf9f42fe27dbe.jpg",
+    "static/media/UD-Express_App_Homepage_UDE-Menu_Flatten.jpg": "/udx-reactjs/static/media/UD-Express_App_Homepage_UDE-Menu_Flatten.9e00e75dc610a150bdd1.jpg",
+    "static/media/company_logo4.png": "/udx-reactjs/static/media/company_logo4.8a32940270c6b43e50f3.png",
+    "static/media/UD-Express_App_User_Icon.jpg": "/udx-reactjs/static/media/UD-Express_App_User_Icon.ef3fa3fbd859bcb8198e.jpg",
+    "static/media/UD-Express_App_Seperator-2.jpg": "/udx-reactjs/static/media/UD-Express_App_Seperator-2.6a0fb7ce8d0e8a54fffe.jpg",
+    "static/media/UD-Express_App_Seperator-1.jpg": "/udx-reactjs/static/media/UD-Express_App_Seperator-1.b408296cbe60d6bd6408.jpg",
+    "index.html": "/udx-reactjs/index.html",
+    "main.77984b3a.css.map": "/udx-reactjs/static/css/main.77984b3a.css.map",
+    "main.7ae4bfe7.js.map": "/udx-reactjs/static/js/main.7ae4bfe7.js.map",
+    "787.25fb5f5a.chunk.js.map": "/udx-reactjs/static/js/787.25fb5f5a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.77984b3a.css",
+    "static/js/main.7ae4bfe7.js"
+  ]
+}
